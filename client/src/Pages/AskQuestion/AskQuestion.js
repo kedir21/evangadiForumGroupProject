@@ -9,21 +9,16 @@ import 'react-quill/dist/quill.snow.css';
  function AskQuestion() {
   const [userData, setUserData] = useContext(UserContext);
   const [form, setForm] = useState({});
-  // const [formattedContent, setFormattedContent] = useState("");
   const navigate = useNavigate();
-  // const [value, setValue] = useState({});
+
 
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-// const handleChange2 = (value) =>{
-//   setValue(value)
-// }
-// const handleBlur = (content, delta, source, editor) => {
-//   setFormattedContent(editor.getHTML());
-// }
+  
+  const [value, setValue] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,10 +27,12 @@ import 'react-quill/dist/quill.snow.css';
         {
           id:userData.user.id,
           question: form.question,
-          questionDescription: form.questionDescription,
+          questionDescription: value,
         }
       );
+
       navigate("/");
+
     } catch (err) {
       console.log("problem", err);
     }
@@ -60,18 +57,15 @@ import 'react-quill/dist/quill.snow.css';
           Go to Question page
         </Link>
         <input className="question_title" type="text" name="question" Placeholder="Title" onChange={handleChange} />
-        <textarea
+        {/* <textarea
           className="question_input"
           placeholder="Question Description..."
           name="questionDescription"
           onChange={handleChange}
-        ></textarea>
-        {/* <div>
-        <ReactQuill className="w-100 quill my-2"  theme="snow" onChange={setFormattedContent}
-            onBlur={handleBlur} name="questionDescription" placeholder="Question Description..."/>
-        </div> */}
-        
-        
+        ></textarea> */}
+
+        <ReactQuill className="w-100 quill my-2" theme="snow" value={value} onChange={setValue}          
+                placeholder="Question Description..."/>
         
        
         <button className="question_post_btn" type="">

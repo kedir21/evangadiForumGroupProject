@@ -3,13 +3,16 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
 import "./AnswerQuestion.css"
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 const AnswerQuestion = ({ questionId }) => {
   const [userData, setUserData] = useContext(UserContext);
-  const [form, setForm] = useState({});
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  }
+  const [value, setValue] = useState('');
+  // const [form, setForm] = useState({});
+  // const handleChange = (e) => {
+  //   setForm({ ...form, [e.target.name]: e.target.value });
+  // }
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -17,7 +20,7 @@ const AnswerQuestion = ({ questionId }) => {
         {
           id: userData.user.id,
           questionId: questionId,
-          answer:form.answer
+          answer:value,
         }
       );   
       window.location.reload(false);
@@ -32,13 +35,18 @@ const AnswerQuestion = ({ questionId }) => {
         <Link to="/" className="text-decoration-none text-reset cursor-pointer">
           Go to Question page
         </Link>
-        <textarea
+
+        {/* <textarea
           onChange={handleChange}
           className="answer_input"
           placeholder="Your Answer..."
           name="answer"
           id=""
-        ></textarea>
+        ></textarea> */}
+
+        <ReactQuill className="w-100 quill my-2" theme="snow" value={value} onChange={setValue}          
+                placeholder="Question Description..."/>
+
         <button className="answer_post_btn" type="">
           Post Your Answer
         </button>

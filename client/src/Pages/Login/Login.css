@@ -109,9 +109,16 @@ h1 {
 	margin-bottom: 20px;
 }
 .showHide2 {
-	display: flex;
+	/* display: flex;
 	justify-content: flex-end;
-	margin: -52px 25px 0px 360px;
+	margin: -52px 25px 0px 360px; */
 	opacity: 0.65;
 	cursor: pointer;
 }
+.field-icon {
+	float: right;
+	margin-top: -55px;
+	position: relative;
+	z-index: 2;
+	
+  }

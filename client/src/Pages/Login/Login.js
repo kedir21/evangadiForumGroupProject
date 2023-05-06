@@ -69,7 +69,7 @@ const Login = () => {
             <input className="input1" type="email" name="email" onChange={handleChange} placeholder="Your Email" />
             <input className="input1" type={type} name="password" onChange={handleChange} placeholder="Your Password" />
             <span onClick={HandleIconChange} className="showHide2">
-              <Icon icon={icon} size={20} />
+              <Icon className="field-icon" icon={icon} size={20} />
             </span>
             <button className="btn1">Login</button>
           </form>

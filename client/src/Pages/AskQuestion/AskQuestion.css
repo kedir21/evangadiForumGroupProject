@@ -45,8 +45,12 @@
 }
 
 .quill{
-	height: 200px;
-	background-color: rgb(197, 197, 197);
-	color: thistle;
-	margin-bottom: 40px;
+	height: 250px;
+	background-image: linear-gradient(rgb(151, 151, 151), rgb(121, 121, 121));
+	mask-image: linear-gradient(black 5%, transparent) !important;
+	color: black;
+	border: none;
+}
+.ql-container.ql-snow{
+	border: none !important;
 }

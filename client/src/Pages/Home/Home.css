@@ -25,3 +25,9 @@ hr{
     border: 0;
     border-top: 1px solid rgba(0,0,0,.1);
 }
+.searchTitle:hover{
+	border:solid 1px #516CF0;
+}
+.searchTitle{
+	height: 40px;
+}
