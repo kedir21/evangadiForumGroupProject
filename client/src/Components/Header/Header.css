@@ -64,3 +64,72 @@ img{
     border:3px solid #516cf0;
 }
 
+
+
+.show {
+    display: none !important;
+    background-color: #000000;
+    position: absolute;
+    top: -100%;
+    left: 0;
+    right: 0;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  #myLinks.show a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  
+
+
+
+  #myLinks {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #F8F8F8;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    
+  }
+  
+  #myLinks a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 20px;
+  
+  }
+  
+  #myLinks a:hover {
+    color: #555;
+  }
+  
+  #myLinks .btn_header {
+    border: none;
+    background-color: #0064FF;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+  }
+  
+  #myLinks .btn_header:hover {
+    background-color: #003DA5;
+  }
+
+  
+  
+  
+  
+  
+  
+  

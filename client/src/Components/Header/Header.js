@@ -14,45 +14,56 @@ function Header1({ logout }) {
       logout();
     }
     navigate("/login");
+  };
+
+  function drop() {
+    var x = document.getElementById("myLinks");
+    if (x.classList.contains("show")) {
+      x.classList.remove("show");
+    } else {
+      x.classList.add("show");
+    }
   }
-
-  // function drop() {
-  //   var x = document.getElementById("myLinks");
-  //   if (x.style.display === "none") {
-  //     x.style.display = "block";
-  //   } else {
-  //     x.style.display = "none";
-  //   }
-  // }
-
-
-
 
   return (
     <>
-    <div className="header container-fluid">
-      <div className="innerContainer container d-flex justify-content-around ">
-        <Link to='/' className="header__image">
-          <img src={logo} alt="Evangadi logo" />
-        </Link>
-        <button className='ic d-sm-block d-md-none'>
-          ☰
-        </button>
-        
-        <div className="d-flex  innerContainer2 justify-content-between d-none d-md-block">
-          <Link to="/">Home</Link>
-          <Link to="/">How it Works</Link>
-          <button className="btn_header">{userData.user ? "LogOut" : "SIGN IN"}</button>
+      <div className="header container-fluid">
+        <div className="innerContainer container d-flex justify-content-around ">
+          <Link to="/" className="header__image">
+            <img src={logo} alt="Evangadi logo" />
+          </Link>
+          <button onClick={drop} className="ic d-sm-block d-md-none">
+            ☰
+          </button>
+
+          <div className="d-flex  innerContainer2 justify-content-between d-none  d-md-block">
+            <Link to="/">Home</Link>
+            <Link to="/">How it Works</Link>
+            <button onClick={goToSignIn} className="btn_header">
+              {userData.user ? "LogOut" : "SIGN IN"}
+            </button>
+          </div>
         </div>
       </div>
-      
-    </div>
-    {/* <div id="myLinks" className="d-sm-block d-md-none">
-    <a href="#news">News</a><br/>
-    <a href="#contact">Contact</a><br/>
-    <a href="#about">About</a>
-  </div> */}
-  </>
+
+      <div
+        className="d-block  justify-content-between  d-md-none"
+        id="myLinks"
+      >
+        <div className="d-md-none">
+          <Link to="/">Home</Link>
+        </div>
+        <hr className="d-md-none"/>
+        <div className="d-md-none">
+          <Link to="/">How it Works</Link>
+        </div>
+        <hr className="d-md-none"/>
+        <div onClick={goToSignIn} className="d-md-none btn_header">
+         <Link to='/'> {userData.user ? "LogOut" : "SIGN IN"} </Link>
+        </div>
+        
+      </div>
+    </>
   );
 }
 
