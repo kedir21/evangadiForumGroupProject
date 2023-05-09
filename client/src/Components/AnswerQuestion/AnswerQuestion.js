@@ -9,10 +9,12 @@ import 'react-quill/dist/quill.snow.css';
 const AnswerQuestion = ({ questionId }) => {
   const [userData, setUserData] = useContext(UserContext);
   const [value, setValue] = useState('');
+
   // const [form, setForm] = useState({});
   // const handleChange = (e) => {
   //   setForm({ ...form, [e.target.name]: e.target.value });
   // }
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

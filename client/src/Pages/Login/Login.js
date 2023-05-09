@@ -3,7 +3,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import './Login.css'
-// to import icons 
+
+// icons 
 import { Icon } from "react-icons-kit";
 import { eyeOff } from "react-icons-kit/feather/eyeOff";
 import { eye } from "react-icons-kit/feather/eye";
@@ -12,6 +13,7 @@ const Login = () => {
   const [userData, setUserData] = useContext(UserContext);
   const navigate = useNavigate();
   const [form, setForm] = useState({});
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -26,6 +28,7 @@ const Login = () => {
           password: form.password,
         }
       );
+      
       setUserData({
         token: loginRes.data.token,
         user: loginRes.data.user,

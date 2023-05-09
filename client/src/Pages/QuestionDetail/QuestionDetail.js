@@ -21,6 +21,8 @@ const SingleQuestion = () => {
       console.log("problem", err);
     }
   };
+
+
   const answersByQuestionId = async () => {
     try {
       const answersRes = await axios.get(
@@ -31,6 +33,8 @@ const SingleQuestion = () => {
       console.log("problem", err);
     }
   };
+
+
   useEffect(() => {
     questionByPostId();
     answersByQuestionId();

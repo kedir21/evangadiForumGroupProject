@@ -46,7 +46,7 @@
 
 .quill{
 	height: 250px;
-	background-image: linear-gradient(rgb(151, 151, 151), rgb(121, 121, 121));
+	background-color: #F1F2F3;
 	mask-image: linear-gradient(black 5%, transparent) !important;
 	color: black;
 	border: none;

@@ -10,6 +10,7 @@ const Home = () => {
   const [allQuestions, setAllQuestions] = useState([]);
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
+
   const Questions = async () => {
     try {
       const questionRes = await axios.get(
@@ -31,12 +32,12 @@ const Home = () => {
   };
   return (
     <div className="container my-5 home-container">
-      <div className="d-flex mb-5 justify-content-between">
+      <div className="d-md-flex mb-5 justify-content-between">
         <button className="ask_button" onClick={handleClick}>
           Ask Question
         </button>
         <input
-          className="question_title searchTitle"
+          className="question_title searchTitle d-block my-2 w-10"
           type="text"
           // name="search"
           Placeholder="Search Questions"
@@ -52,10 +53,11 @@ const Home = () => {
               return question;
             } else if (
               question.question.toLowerCase().includes(search.toLowerCase())
-            ) {
+            ){
               return question;
             }
           })
+          
           .map((question) => (
             <div key={question.post_id}>
               <hr />

@@ -9,15 +9,22 @@ import { eyeOff } from "react-icons-kit/feather/eyeOff";
 import { eye } from "react-icons-kit/feather/eye";
 const SignUp = () => {
   const [form, setForm] = useState({});
-  const [userData, setUserData] = useContext(UserContext);  const [type, setType] = useState("password");
+  const [userData, setUserData] = useContext(UserContext); 
+  const [type, setType] = useState("password");
   const navigate = useNavigate();
+
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
+
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await axios.post("http://localhost:4000/api/users", form);
+
       const loginRes = await axios.post(
         "http://localhost:4000/api/users/login",
         {
@@ -31,6 +38,7 @@ const SignUp = () => {
       });
       localStorage.setItem("auth-token", loginRes.data.token);
       navigate("/");
+
     } catch (error) {
       console.log("problem ==>", error.response.data.msg);
       alert(error.response.data.msg);
@@ -40,6 +48,8 @@ const SignUp = () => {
   // to change type attribute from 'password' to 'text' and vice versa
   const [icon, setIcon] = useState(eyeOff);
   // to change the icon when clicked
+
+
   const HandleIconChange = () => {
     // event listen for Password function
     if (type === "password") {
@@ -50,6 +60,7 @@ const SignUp = () => {
       setType("password");
     }
   };
+  
   return (
     <div className="container-fluid sign_page">
       <div className="container d-md-flex mx-auto py-5 align-items-center">
@@ -102,7 +113,7 @@ const SignUp = () => {
               type={type}
               placeholder="Password"
             />
-            <span className="showHide">
+            <span className="showHide field-icon">
               <Icon icon={icon} size={20} onClick={HandleIconChange} />
             </span>
             <button className="btnSign">Agree and Join</button>
@@ -127,8 +138,8 @@ const SignUp = () => {
           <p className="forTitle">About</p>
           <h1>Evangadi Networks Q&A</h1>
           <p className="lorem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem voluptate officiis beatae nobis pariatur omnis facere accusamus laboriosam hic, adipisci vero reiciendis, recusandae sit ad, eum quisquam! Molestias, ut commodi!</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem voluptate officiis beatae nobis pariatur omnis facere accusamus laboriosam hic, adipisci vero reiciendis, recusandae sit ad, eum quisquam! Molestias, ut commodi!</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum dolor odio harum sunt, quaerat, molestias fuga expedita ad excepturi officiis aliquam aut nemo ratione culpa id laborum ipsum porro tempore?</p>
+          <p>No matter what stage of life you are in, whether you’re just starting elementary school or being promoted to CEO of a Fortune 500 company, you have much to offer to those who are trying to follow in your footsteps.!</p>
+          <p>Wheather you are willing to share your knowledge or you are just looking to meet mentors of your own, please start by joining the network here.</p>
           <button className="btn1">HOW IT WORKS</button>
         </div>
       </div>
